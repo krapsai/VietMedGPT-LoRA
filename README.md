@@ -1,48 +1,46 @@
-# VietMedGPT-LoRA
-Supervised fine-tuning Vietnamese medical QA with LoRA + 4-bit on OpenChat 3.5
-
-# OpenChat ViMedQA SFT 🩺🦙
-
-> Supervised fine-tuning (LoRA + 4-bit) mô hình [OpenChat 3.5](https://huggingface.co/openchat) cho tác vụ Hỏi–Đáp Y khoa tiếng Việt.
+# VietMedGPT-LoRA 🩺🦙
+Supervised fine-tuning for Vietnamese medical QA using LoRA and 4-bit quantization on OpenChat 3.5.
 
 ![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)
 ![made with 🤗 Transformers](https://img.shields.io/badge/🤗%20Transformers-%F0%9F%A4%97-ff69b4)
 
 ---
 
-## Table of Contents
-1. [Giới thiệu](#giới-thiệu)
-2. [Tính năng](#tính-năng)
-3. [Chuẩn bị môi trường](#chuẩn-bị-môi-trường)
-
-
----
-
-## Giới thiệu
-Notebook `LLM_Finetune_SFT.ipynb` minh hoạ quy trình:
-* Dùng **OpenChat 3.5**;
-* Giảm dụng VRAM với **4-bit quantization** (BitsAndBytes);
-* Áp dụng **LoRA** (rank 8, α 32) vào các tầng Q/V-proj;
-* Thêm prompt ép “Chain-of-Thought” tiếng Việt;
-* Fine-tune trên **`hungnm/vietnamese-medical-qa`** (≈ 5 k cặp Q–A);
-* Xuất checkpoint `sft-openchat-medqa/`.
-
-Kết quả: mô hình trả lời kèm các bước giải thích trước khi đưa ra câu trả lời cuối cùng
+## 📚 Table of Contents
+1. [Introduction](#introduction)
+2. [Features](#features)
+3. [Environment Setup](#environment-setup)
 
 ---
 
-## Tính năng
-| | Mô tả |
-|---|---|
-| **🔧 LoRA** | Chỉ huấn luyện <1 % tham số → nhanh & rẻ |
-| **🧮 4-bit** | Tiết kiệm VRAM gấp ~2,6× so với fp16 |
-| **🩺 ViMedQA** | Domain chuyên biệt Y khoa tiếng Việt |
-| **🗣️ CoT Prompt** | Thúc đẩy lời giải có bước lập luận rõ ràng |
-| **⚡ Trainer API** | Sử dụng `transformers.Trainer` – dễ tái lập |
+## 🧠 Introduction
+
+The notebook `LLM_Finetune_SFT.ipynb` demonstrates how to:
+
+- Load **OpenChat 3.5** as the base model.
+- Apply **4-bit quantization** via BitsAndBytes to reduce VRAM usage.
+- Use **LoRA adapters** (rank 8, α = 32) on Q/V projection layers.
+- Add **Chain-of-Thought prompting** in Vietnamese.
+- Fine-tune the model on the **`hungnm/vietnamese-medical-qa`** dataset (~5,000 QA pairs).
+- Export a final model checkpoint to `sft-openchat-medqa/`.
+
+✅ The resulting model provides answers with step-by-step reasoning, suitable for Vietnamese medical question answering.
 
 ---
 
-## Chuẩn bị môi trường
+## 🚀 Features
+
+| Feature           | Description |
+|------------------|-------------|
+| **🔧 LoRA**       | Fine-tunes less than 1% of parameters → fast & memory-efficient |
+| **🧮 4-bit**      | Reduces VRAM usage by ~2.6× compared to fp16 |
+| **🩺 ViMedQA**    | Domain-specific QA in Vietnamese medical language |
+| **🗣️ CoT Prompt** | Produces step-by-step reasoning before answering |
+| **⚡ Trainer API**| Easy training via Hugging Face `transformers.Trainer` |
+
+---
+
+## 🛠 Environment Setup
 
 ```bash
 git clone https://github.com/krapsai/openchat-vimedqa-sft.git
