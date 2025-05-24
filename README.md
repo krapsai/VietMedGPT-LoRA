@@ -45,7 +45,7 @@ Kết quả: mô hình trả lời kèm các bước giải thích trước khi 
 ## Chuẩn bị môi trường
 
 ```bash
-git clone https://github.com/<krapsai>/openchat-vimedqa-sft.git
+git clone https://github.com/   krapsai/openchat-vimedqa-sft.git
 cd openchat-vimedqa-sft
 
 # Python ≥ 3.10
