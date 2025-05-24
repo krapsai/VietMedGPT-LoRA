@@ -14,14 +14,7 @@ Supervised fine-tuning Vietnamese medical QA with LoRA + 4-bit on OpenChat 3.5
 1. [Giới thiệu](#giới-thiệu)
 2. [Tính năng](#tính-năng)
 3. [Chuẩn bị môi trường](#chuẩn-bị-môi-trường)
-4. [Tải dữ liệu](#tải-dữ-liệu)
-5. [Huấn luyện](#huấn-luyện)
-6. [Suy luận](#suy-luận)
-7. [Thư mục & File](#cấu-trúc-thư-mục)
-8. [Kết quả mẫu](#kết-quả-mẫu)
-9. [Đóng góp](#đóng-góp)
-10. [Gi giấy bản quyền](#license)
-11. [Liên hệ](#liên-hệ)
+
 
 ---
 
