@@ -27,14 +27,14 @@ Supervised fine-tuning Vietnamese medical QA with LoRA + 4-bit on OpenChat 3.5
 
 ## Giới thiệu
 Notebook `LLM_Finetune_SFT.ipynb` minh hoạ quy trình:
-* nạp **OpenChat 3.5**;
-* giảm dụng VRAM với **4-bit quantization** (BitsAndBytes);
-* gắn **LoRA** (rank 8, α 32) vào các tầng Q/V-proj;
-* thêm prompt ép “Chain-of-Thought” tiếng Việt;
-* fine-tune trên **`hungnm/vietnamese-medical-qa`** (≈ 5 k cặp Q–A);
-* xuất checkpoint `sft-openchat-medqa/`.
+* Dùng **OpenChat 3.5**;
+* Giảm dụng VRAM với **4-bit quantization** (BitsAndBytes);
+* Áp dụng **LoRA** (rank 8, α 32) vào các tầng Q/V-proj;
+* Thêm prompt ép “Chain-of-Thought” tiếng Việt;
+* Fine-tune trên **`hungnm/vietnamese-medical-qa`** (≈ 5 k cặp Q–A);
+* Xuất checkpoint `sft-openchat-medqa/`.
 
-Kết quả: mô hình trả lời kèm giải thích reasoning cho câu hỏi sức khoẻ thông dụng, chạy được trên GPU 24 GB (A4000 / RTX 3090) hoặc Colab T4.
+Kết quả: mô hình trả lời kèm các bước giải thích trước khi đưa ra câu trả lời cuối cùng
 
 ---
 
@@ -59,6 +59,4 @@ cd openchat-vimedqa-sft
 python -m venv .venv
 source .venv/bin/activate
 
-pip install -r requirements.txt
-# hoặc
 pip install torch transformers datasets peft bitsandbytes accelerate
